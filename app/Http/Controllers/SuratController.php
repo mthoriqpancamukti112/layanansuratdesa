@@ -22,7 +22,7 @@ class SuratController extends Controller
         $validator = Validator::make($request->all(), [
             'no_surat' => 'required|string|max:255|unique:surats,no_surat',
             'nama_surat' => 'required|string|max:255',
-            'jenis_surat' => 'required|in:usaha,tidak_mampu,pindah,ahliwaris,tanah,rekomendasibbm',
+            'jenis_surat' => 'required|in:usaha,tidak_mampu,pindah,ahliwaris,tanah,rekomendasibbm,penghasilan',
         ], [
             'no_surat.required' => 'Nomor surat tidak boleh kosong.',
             'no_surat.unique' => 'Nomor surat sudah terdaftar.',
@@ -58,7 +58,7 @@ class SuratController extends Controller
         $validator = Validator::make($request->all(), [
             'no_surat' => 'required|string|max:255|unique:surats,no_surat,' . $surat->id,
             'nama_surat' => 'required|string|max:255',
-            'jenis_surat' => 'required|in:usaha,tidak_mampu,pindah,ahliwaris,tanah,rekomendasibbm',
+            'jenis_surat' => 'required|in:usaha,tidak_mampu,pindah,ahliwaris,tanah,rekomendasibbm,penghasilan',
         ], [
             'no_surat.required' => 'Nomor surat tidak boleh kosong.',
             'no_surat.unique' => 'Nomor surat sudah terdaftar.',
@@ -106,22 +106,5 @@ class SuratController extends Controller
             return response()->json(['no_surat' => $surat->no_surat]);
         }
         return response()->json(['error' => 'Surat not found'], 404);
-    }
-
-    public function print($jenis_surat, $id)
-    {
-        $suratPenduduk = SuratPenduduk::with(['user', 'surat', 'detailSurats'])->findOrFail($id);
-
-        if ($suratPenduduk->status !== 'disetujui') {
-            return redirect()->route('verifikasi.surat', $id);
-        }
-
-        return view("surat.{$jenis_surat}.print", compact('suratPenduduk'));
-    }
-
-    public function generate($jenis_surat)
-    {
-        // Logic untuk menampilkan halaman buat surat baru berdasarkan jenis surat
-        return view("surat.generate_$jenis_surat");
     }
 }

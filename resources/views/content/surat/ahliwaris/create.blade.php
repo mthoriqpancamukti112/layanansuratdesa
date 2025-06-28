@@ -32,7 +32,7 @@
                             <label for="desa_id">Desa</label>
                             <select name="desa_id" id="desa_id"
                                 class="form-control @error('desa_id') is-invalid @enderror">
-                                <option value="">-- Pilih Desa --</option>
+                                <option value="">-- Pilih --</option>
                                 @foreach ($desas as $desa)
                                     <option value="{{ $desa->id }}" {{ old('desa_id') == $desa->id ? 'selected' : '' }}>
                                         {{ $desa->nama_desa }}
@@ -46,7 +46,7 @@
                         <div class="form-group">
                             <label for="keperluan_ahliwaris">Keperluan Ahli Waris</label>
                             <textarea class="form-control @error('keperluan_ahliwaris') is-invalid @enderror" id="keperluan_ahliwaris"
-                                name="keperluan_ahliwaris" rows="3">{{ old('keperluan_ahliwaris') }}</textarea>
+                                name="keperluan_ahliwaris" rows="3" placeholder="Apa keperluan anda untuk buat surat ini">{{ old('keperluan_ahliwaris') }}</textarea>
                             @error('keperluan_ahliwaris')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -56,51 +56,56 @@
                             <div id="anggota-container">
                                 <div class="anggota-item">
                                     <div class="form-row">
-                                        <div class="col-md-3">
-                                            <input type="text"
-                                                class="form-control @error('anggota.0.nama') is-invalid @enderror"
-                                                name="anggota[0][nama]" placeholder="Nama">
-                                            @error('anggota.0.nama')
-                                                <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <input type="text"
+                                                    class="form-control @error('anggota.0.nama') is-invalid @enderror"
+                                                    name="anggota[0][nama]" placeholder="Nama lengkap">
+                                                @error('anggota.0.nama')
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="number"
+                                                    class="form-control @error('anggota.0.nik') is-invalid @enderror"
+                                                    name="anggota[0][nik]" placeholder="NIK">
+                                                @error('anggota.0.nik')
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text"
+                                                    class="form-control @error('anggota.0.tempat_lahir') is-invalid @enderror"
+                                                    name="anggota[0][tempat_lahir]" placeholder="Tempat Lahir">
+                                                @error('anggota.0.tempat_lahir')
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                @enderror
+                                            </div>
                                         </div>
-                                        <div class="col-md-3">
-                                            <input type="number"
-                                                class="form-control @error('anggota.0.nik') is-invalid @enderror"
-                                                name="anggota[0][nik]" placeholder="NIK">
-                                            @error('anggota.0.nik')
-                                                <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <input type="date"
+                                                    class="form-control @error('anggota.0.tgl_lahir') is-invalid @enderror"
+                                                    name="anggota[0][tgl_lahir]">
+                                                @error('anggota.0.tgl_lahir')
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                            <div class="form-group">
+                                                <select class="form-control @error('anggota.0.jk') is-invalid @enderror"
+                                                    name="anggota[0][jk]">
+                                                    <option value="">-- Pilih --</option>
+                                                    <option value="Laki-laki">Laki-laki</option>
+                                                    <option value="Perempuan">Perempuan</option>
+                                                </select>
+                                                @error('anggota.0.jk')
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                @enderror
+                                            </div>
                                         </div>
-                                        <div class="col-md-2">
-                                            <input type="text"
-                                                class="form-control @error('anggota.0.tempat_lahir') is-invalid @enderror"
-                                                name="anggota[0][tempat_lahir]" placeholder="Tempat Lahir">
-                                            @error('anggota.0.tempat_lahir')
-                                                <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                        <div class="col-md-2">
-                                            <input type="date"
-                                                class="form-control @error('anggota.0.tgl_lahir') is-invalid @enderror"
-                                                name="anggota[0][tgl_lahir]">
-                                            @error('anggota.0.tgl_lahir')
-                                                <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                        <div class="col-md-2">
-                                            <select class="form-control @error('anggota.0.jk') is-invalid @enderror"
-                                                name="anggota[0][jk]">
-                                                <option value="">Jenis Kelamin</option>
-                                                <option value="Laki-laki">Laki-laki</option>
-                                                <option value="Perempuan">Perempuan</option>
-                                            </select>
-                                            @error('anggota.0.jk')
-                                                <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                        <div class="col-12 mt-2">
-                                            <button type="button" class="btn btn-success btn-sm add-anggota">Tambah
+                                        <div style="margin-left: 5px">
+                                            <button type="button" class="btn btn-success add-anggota"
+                                                style="color: black; font-weight: bold">Tambah
                                                 Anggota</button>
                                         </div>
                                     </div>
@@ -128,17 +133,40 @@
                 if (x < maxFields) {
                     x++;
                     $(wrapper).append(
-                        '<div class="anggota-item mt-3"><div class="form-row"><div class="col-md-3"><input type="text" class="form-control" name="anggota[' +
-                        x +
-                        '][nama]" placeholder="Nama"></div><div class="col-md-3"><input type="text" class="form-control" name="anggota[' +
-                        x +
-                        '][nik]" placeholder="NIK"></div><div class="col-md-3"><input type="text" class="form-control" name="anggota[' +
-                        x +
-                        '][tempat_lahir]" placeholder="Tempat Lahir"></div><div class="col-md-2"><input type="date" class="form-control" name="anggota[' +
-                        x +
-                        '][tgl_lahir]"></div><div class="col-md-1"><select class="form-control" name="anggota[' +
-                        x +
-                        '][jk]"><option value="">Jenis Kelamin</option><option value="Laki-laki">Laki-laki</option><option value="Perempuan">Perempuan</option></select></div><div class="col-12 mt-2"><button type="button" class="btn btn-danger btn-sm remove-anggota">Hapus</button></div></div></div>'
+                        '<div class="anggota-item mt-3">' +
+                        '<div class="form-row">' +
+                        '<div class="col-lg-6">' +
+                        '<div class="form-group">' +
+                        '<input type="text" class="form-control" name="anggota[' + x +
+                        '][nama]" placeholder="Nama">' +
+                        '</div>' +
+                        '<div class="form-group">' +
+                        '<input type="text" class="form-control" name="anggota[' + x +
+                        '][nik]" placeholder="NIK">' +
+                        '</div>' +
+                        '<div class="form-group">' +
+                        '<input type="text" class="form-control" name="anggota[' + x +
+                        '][tempat_lahir]" placeholder="Tempat Lahir">' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="col-lg-6">' +
+                        '<div class="form-group">' +
+                        '<input type="date" class="form-control" name="anggota[' + x +
+                        '][tgl_lahir]">' +
+                        '</div>' +
+                        '<div class="form-group">' +
+                        '<select class="form-control" name="anggota[' + x + '][jk]">' +
+                        '<option value="">Jenis Kelamin</option>' +
+                        '<option value="Laki-laki">Laki-laki</option>' +
+                        '<option value="Perempuan">Perempuan</option>' +
+                        '</select>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="col-12 mt-2">' +
+                        '<button type="button" class="btn btn-danger btn-sm remove-anggota">Hapus</button>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>'
                     );
                 }
             });

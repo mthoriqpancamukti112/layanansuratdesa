@@ -104,24 +104,24 @@
                     </div>
                 </a>
             </div>
-            <div class="row mt-4">
-                <div class="col-lg-12">
-                    <h4>Jumlah Surat yang Diarsipkan</h4>
-                    <div class="row">
-                        @foreach ($surat_arsip_counts as $surat_id => $total)
-                            @php
-                                $surat = \App\Models\Surat::find($surat_id);
-                            @endphp
-                            <div class="col-lg-3 col-md-6">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">{{ $surat ? $surat->nama_surat : 'Unknown' }}</h5>
-                                        <p class="card-text">Jumlah Arsip: {{ $total }}</p>
-                                    </div>
+        </div>
+        <div class="row">
+            <div class="col-12 mt-4">
+                <h4>Jumlah Surat yang Diarsipkan</h4>
+                <div class="row">
+                    @foreach ($surat_arsip_counts as $surat_id => $total)
+                        @php
+                            $surat = \App\Models\Surat::find($surat_id);
+                        @endphp
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $surat ? $surat->nama_surat : 'Unknown' }}</h5>
+                                    <p class="card-text">Jumlah Arsip: {{ $total }}</p>
                                 </div>
                             </div>
-                        @endforeach
-                    </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>

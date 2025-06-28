@@ -36,7 +36,7 @@
                             <label for="desa_id">Desa</label>
                             <select name="desa_id" id="desa_id"
                                 class="form-control @error('desa_id') is-invalid @enderror">
-                                <option value="">-- Pilih Desa --</option>
+                                <option value="">-- Pilih --</option>
                                 @foreach ($desas as $desa)
                                     <option value="{{ $desa->id }}" {{ old('desa_id') == $desa->id ? 'selected' : '' }}>
                                         {{ $desa->nama_desa }}
@@ -51,7 +51,7 @@
                             <label for="alasan_pindah">Alasan Pindah</label>
                             <select class="form-control @error('alasan_pindah') is-invalid @enderror" id="alasan_pindah"
                                 name="alasan_pindah">
-                                <option value="">-- Pilih Alasan --</option>
+                                <option value="">-- Pilih --</option>
                                 <option value="Pekerjaan" {{ old('alasan_pindah') == 'Pekerjaan' ? 'selected' : '' }}>
                                     Pekerjaan</option>
                                 <option value="Pendidikan" {{ old('alasan_pindah') == 'Pendidikan' ? 'selected' : '' }}>
@@ -78,7 +78,7 @@
                             <label for="alamat_tujuan_pindah">Alamat Tujuan Pindah</label>
                             <input type="text" class="form-control @error('alamat_tujuan_pindah') is-invalid @enderror"
                                 id="alamat_tujuan_pindah" name="alamat_tujuan_pindah"
-                                value="{{ old('alamat_tujuan_pindah') }}">
+                                value="{{ old('alamat_tujuan_pindah') }}" placeholder="Masukan alamat tujuan">
                             @error('alamat_tujuan_pindah')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -86,7 +86,8 @@
                         <div class="form-group">
                             <label for="nama_desa_pindah">Desa</label>
                             <input type="text" class="form-control @error('nama_desa_pindah') is-invalid @enderror"
-                                id="nama_desa_pindah" name="nama_desa_pindah" value="{{ old('nama_desa_pindah') }}">
+                                id="nama_desa_pindah" name="nama_desa_pindah" value="{{ old('nama_desa_pindah') }}"
+                                placeholder="Beleka">
                             @error('nama_desa_pindah')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -94,7 +95,8 @@
                         <div class="form-group">
                             <label for="kecamatan_pindah">Kecamatan</label>
                             <input type="text" class="form-control @error('kecamatan_pindah') is-invalid @enderror"
-                                id="kecamatan_pindah" name="kecamatan_pindah" value="{{ old('kecamatan_pindah') }}">
+                                id="kecamatan_pindah" name="kecamatan_pindah" value="{{ old('kecamatan_pindah') }}"
+                                placeholder="Gerung">
                             @error('kecamatan_pindah')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -102,7 +104,8 @@
                         <div class="form-group">
                             <label for="kabupaten_pindah">Kabupaten</label>
                             <input type="text" class="form-control @error('kabupaten_pindah') is-invalid @enderror"
-                                id="kabupaten_pindah" name="kabupaten_pindah" value="{{ old('kabupaten_pindah') }}">
+                                id="kabupaten_pindah" name="kabupaten_pindah" value="{{ old('kabupaten_pindah') }}"
+                                placeholder="Lombok Barat">
                             @error('kabupaten_pindah')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -110,7 +113,8 @@
                         <div class="form-group">
                             <label for="provinsi_pindah">Provinsi</label>
                             <input type="text" class="form-control @error('provinsi_pindah') is-invalid @enderror"
-                                id="provinsi_pindah" name="provinsi_pindah" value="{{ old('provinsi_pindah') }}">
+                                id="provinsi_pindah" name="provinsi_pindah" value="{{ old('provinsi_pindah') }}"
+                                placeholder="Nusa Tenggara Barat">
                             @error('provinsi_pindah')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -118,7 +122,7 @@
                         <div class="form-group">
                             <label for="no_telp">Nomor Telepon</label>
                             <input type="number" class="form-control @error('no_telp') is-invalid @enderror" id="no_telp"
-                                name="no_telp" value="{{ old('no_telp') }}">
+                                name="no_telp" value="{{ old('no_telp') }}" placeholder="08x..">
                             @error('no_telp')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -126,7 +130,8 @@
                         <div class="form-group">
                             <label for="kode_pos">Kode Pos</label>
                             <input type="number" class="form-control @error('kode_pos') is-invalid @enderror"
-                                id="kode_pos" name="kode_pos" value="{{ old('kode_pos') }}">
+                                id="kode_pos" name="kode_pos" value="{{ old('kode_pos') }}"
+                                placeholder="Masukan kode pos">
                             @error('kode_pos')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -134,7 +139,7 @@
                         <div class="form-group">
                             <label for="rt">RT</label>
                             <input type="number" class="form-control @error('rt') is-invalid @enderror" id="rt"
-                                name="rt" value="{{ old('rt') }}">
+                                name="rt" value="{{ old('rt') }}" placeholder="Masukan nomor rt">
                             @error('rt')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -142,7 +147,7 @@
                         <div class="form-group">
                             <label for="rw">RW</label>
                             <input type="number" class="form-control @error('rw') is-invalid @enderror" id="rw"
-                                name="rw" value="{{ old('rw') }}">
+                                name="rw" value="{{ old('rw') }}" placeholder="Masukan nomor rw">
                             @error('rw')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -151,7 +156,7 @@
                             <label for="klasifikasi_pindah">Klasifikasi Pindah</label>
                             <select class="form-control @error('klasifikasi_pindah') is-invalid @enderror"
                                 id="klasifikasi_pindah" name="klasifikasi_pindah">
-                                <option value="">-- Pilih Klasifikasi --</option>
+                                <option value="">-- Pilih --</option>
                                 <option value="Dalam Satu Desa/Kelurahan"
                                     {{ old('klasifikasi_pindah') == 'Dalam Satu Desa/Kelurahan' ? 'selected' : '' }}>Dalam
                                     Satu Desa/Kelurahan</option>
@@ -176,7 +181,7 @@
                             <label for="jenis_perpindahan">Jenis Perpindahan</label>
                             <select class="form-control @error('jenis_perpindahan') is-invalid @enderror"
                                 id="jenis_perpindahan" name="jenis_perpindahan">
-                                <option value="">-- Pilih Jenis Perpindahan --</option>
+                                <option value="">-- Pilih --</option>
                                 <option value="Kepala Keluarga"
                                     {{ old('jenis_perpindahan') == 'Kepala Keluarga' ? 'selected' : '' }}>Kepala Keluarga
                                 </option>
@@ -198,7 +203,7 @@
                             <label for="status_no_kk_tidakpindah">Status Nomor KK Tidak Pindah</label>
                             <select class="form-control @error('status_no_kk_tidakpindah') is-invalid @enderror"
                                 id="status_no_kk_tidakpindah" name="status_no_kk_tidakpindah">
-                                <option value="">-- Pilih Status KK Tidak Pindah --</option>
+                                <option value="">-- Pilih --</option>
                                 <option value="Numpang KK"
                                     {{ old('status_no_kk_tidakpindah') == 'Numpang KK' ? 'selected' : '' }}>Numpang KK
                                 </option>
@@ -220,7 +225,7 @@
                             <label for="status_no_kk_pindah">Status Nomor KK Pindah</label>
                             <select class="form-control @error('status_no_kk_pindah') is-invalid @enderror"
                                 id="status_no_kk_pindah" name="status_no_kk_pindah">
-                                <option value="">-- Pilih Status KK Pindah --</option>
+                                <option value="">-- Pilih --</option>
                                 <option value="Numpang KK"
                                     {{ old('status_no_kk_pindah') == 'Numpang KK' ? 'selected' : '' }}>Numpang KK</option>
                                 <option value="Membuat KK baru"
@@ -249,35 +254,40 @@
                             <div id="anggota-container">
                                 <div class="anggota-item">
                                     <div class="form-row">
-                                        <div class="col-md-3">
-                                            <input type="text"
-                                                class="form-control @error('anggota.0.nik') is-invalid @enderror"
-                                                name="anggota[0][nik]" placeholder="NIK"
-                                                value="{{ old('anggota.0.nik') }}">
-                                            @error('anggota.0.nik')
-                                                <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <input type="text"
+                                                    class="form-control @error('anggota.0.nik') is-invalid @enderror"
+                                                    name="anggota[0][nik]" placeholder="NIK"
+                                                    value="{{ old('anggota.0.nik') }}">
+                                                @error('anggota.0.nik')
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                @enderror
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text"
+                                                    class="form-control @error('anggota.0.nama') is-invalid @enderror"
+                                                    name="anggota[0][nama]" placeholder="Nama lengkap"
+                                                    value="{{ old('anggota.0.nama') }}">
+                                                @error('anggota.0.nama')
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                @enderror
+                                            </div>
                                         </div>
-                                        <div class="col-md-3">
-                                            <input type="text"
-                                                class="form-control @error('anggota.0.nama') is-invalid @enderror"
-                                                name="anggota[0][nama]" placeholder="Nama"
-                                                value="{{ old('anggota.0.nama') }}">
-                                            @error('anggota.0.nama')
-                                                <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
+                                        <div class="col-lg-6">
+                                            <div class="for-group">
+                                                <input type="text"
+                                                    class="form-control @error('anggota.0.shdk') is-invalid @enderror"
+                                                    name="anggota[0][shdk]" placeholder="SHDK"
+                                                    value="{{ old('anggota.0.shdk') }}">
+                                                @error('anggota.0.shdk')
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                @enderror
+                                            </div>
                                         </div>
-                                        <div class="col-md-3">
-                                            <input type="text"
-                                                class="form-control @error('anggota.0.shdk') is-invalid @enderror"
-                                                name="anggota[0][shdk]" placeholder="SHDK"
-                                                value="{{ old('anggota.0.shdk') }}">
-                                            @error('anggota.0.shdk')
-                                                <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
-                                        </div>
-                                        <div class="col-12 mt-2">
-                                            <button type="button" class="btn btn-success btn-sm add-anggota">Tambah
+                                        <div class="col-12 mt-3">
+                                            <button type="button" class="btn btn-success add-anggota"
+                                                style="color: black; font-weight: bold">Tambah
                                                 Anggota</button>
                                         </div>
                                     </div>
@@ -305,13 +315,30 @@
                 if (x < maxFields) {
                     x++;
                     $(wrapper).append(
-                        '<div class="anggota-item mt-3"><div class="form-row"><div class="col-md-3"><input type="text" class="form-control" name="anggota[' +
-                        x +
-                        '][nik]" placeholder="NIK"></div><div class="col-md-3"><input type="text" class="form-control" name="anggota[' +
-                        x +
-                        '][nama]" placeholder="Nama"></div><div class="col-md-3"><input type="text" class="form-control" name="anggota[' +
-                        x +
-                        '][shdk]" placeholder="SHDK"></div><div class="col-12 mt-2"><button type="button" class="btn btn-danger btn-sm remove-anggota">Hapus</button></div></div></div>'
+                        '<div class="anggota-item mt-3">' +
+                        '<div class="form-row">' +
+                        '<div class="col-lg-6">' +
+                        '<div class="form-group">' +
+                        '<input type="text" class="form-control" name="anggota[' + x +
+                        '][nik]" placeholder="NIK">' +
+                        '</div>' +
+                        '<div class="form-group">' +
+                        '<input type="text" class="form-control" name="anggota[' + x +
+                        '][nama]" placeholder="Nama lengkap">' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="col-lg-6">' +
+                        '<div class="form-group">' +
+                        '<input type="text" class="form-control" name="anggota[' + x +
+                        '][shdk]" placeholder="SHDK">' +
+                        '</div>' +
+                        '</div>' +
+                        '<div class="col-12">' +
+                        '<button type="button" class="btn btn-danger btn-sm remove-anggota">Hapus</button>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '</div>'
                     );
                 }
             });

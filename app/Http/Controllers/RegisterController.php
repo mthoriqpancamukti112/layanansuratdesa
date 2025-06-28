@@ -19,7 +19,7 @@ class RegisterController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'nik' => 'required|string|unique:users,nik|max:16',
-            'username' => 'required|string|unique:users,username|max:255',
+            'username' => 'required|string|max:255',
             'no_kk' => 'required|string|max:20',
             'jk' => 'required|string|max:10',
             'tempat_lahir' => 'required|string|max:100',
@@ -40,7 +40,6 @@ class RegisterController extends Controller
             'nik.unique' => 'NIK sudah terdaftar.',
             'nik.max' => 'NIK tidak boleh lebih dari 16 karakter.',
             'username.required' => 'Username tidak boleh kosong.',
-            'username.unique' => 'Username sudah terdaftar.',
             'username.max' => 'Username tidak boleh lebih dari 255 karakter.',
             'no_kk.required' => 'Nomor KK tidak boleh kosong.',
             'no_kk.max' => 'Nomor KK tidak boleh lebih dari 20 karakter.',

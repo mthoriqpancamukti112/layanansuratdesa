@@ -39,7 +39,7 @@
                                                         {{-- <a href="{{ route('surat.usaha.edit', $suratPenduduk->id) }}"
                                                             class="btn btn-warning btn-sm mr-2">Edit</a> --}}
                                                         <a href="{{ route('surat.usaha.print', $suratPenduduk->id) }}"
-                                                            class="btn btn-primary btn-sm mr-2">Print</a>
+                                                            class="btn btn-primary btn-sm mr-2" target="_blank">Print</a>
                                                         <form
                                                             action="{{ route('surat.usaha.destroy', $suratPenduduk->id) }}"
                                                             method="POST" style="display:inline;"

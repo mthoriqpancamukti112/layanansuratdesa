@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="card">
-        <a href="{{ route('desa.create') }}" type="button" class="btn btn-success">Tambah Data</a>
+        <a href="{{ route('desa.create') }}" type="button" class="btn btn-primary">Tambah Data</a>
     </div>
     <div class="card">
         <div class="card-body">

@@ -290,13 +290,11 @@
                 <td colspan="2">&nbsp;</td>
             </tr>
             <tr>
-                {{-- <td class="left print-text" rowspan="3">
-                    <div class="print-text">
-                        Yang bersangkutan
-                        <br><br><br><br><br><br>
-                        {{ strtoupper(Auth::user()->username) }}
-                    </div>
-                </td> --}}
+                <td class="left print-text">
+                    <span> Yang bersangkutan</span><br>
+                    <img src="{{ asset('barcode/' . basename($path)) }}" alt="QR Code"><br>
+                    <span> {{ $suratPenduduk->user->username }}</span>
+                </td>
                 <td class="right print-text">
                     <div class="content">
                         <div id="tanggal" class="left-align"></div>

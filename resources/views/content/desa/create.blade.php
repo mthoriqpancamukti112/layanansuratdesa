@@ -14,6 +14,17 @@
         <form action="{{ route('desa.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="card-body">
+
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -54,8 +65,8 @@
                         <div class="form-group">
                             <label>Kecamatan</label>
                             <input type="text" name="kecamatan"
-                                class="form-control @error('kecamatan') is-invalid @enderror" value="{{ old('kecamatan') }}"
-                                maxlength="100">
+                                class="form-control @error('kecamatan') is-invalid @enderror"
+                                value="{{ old('kecamatan') }}" maxlength="100">
                             @error('kecamatan')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror

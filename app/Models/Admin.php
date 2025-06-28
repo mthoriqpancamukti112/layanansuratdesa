@@ -13,7 +13,7 @@ class Admin extends Model
         'user_id', 'nik', 'no_kk', 'username', 'jk', 'tempat_lahir', 'tgl_lahir',
         'kewarganegaraan', 'agama', 'status', 'pendidikan', 'pekerjaan',
         'provinsi', 'kabupaten', 'kecamatan', 'alamat', 'no_hp', 'desa',
-        'tgl_buat', 'last_login',
+        'tgl_buat',
     ];
 
     // Relasi

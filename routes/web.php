@@ -12,11 +12,13 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SuratAhliWarisController;
 use App\Http\Controllers\SuratController;
 use App\Http\Controllers\SuratPendudukController;
+use App\Http\Controllers\SuratPenghasilanOrtuController;
 use App\Http\Controllers\SuratPindahController;
 use App\Http\Controllers\SuratRekomendasiBBMController;
 use App\Http\Controllers\SuratTanahController;
 use App\Http\Controllers\SuratTidakMampuController;
 use App\Http\Controllers\SuratUsahaController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserLoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -67,6 +69,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::put('/surat/{id}', [SuratController::class, 'update'])->name('surat.update');
     Route::delete('/surat/{id}', [SuratController::class, 'destroy'])->name('surat.destroy');
     Route::get('api/surat/{id}', [SuratController::class, 'getNoSurat']);
+
+    Route::resource('user', UserController::class);
 
     Route::get('pembuatan-surat-permohonan', [PermohonanSuratController::class, 'index'])->name('daftarbuatpermohonan.index');
     Route::post('pembuatan-surat-permohonan/{id}/acc', [PermohonanSuratController::class, 'acc'])->name('daftarbuatpermohonan.acc');
@@ -127,6 +131,14 @@ Route::middleware('auth')->group(function () {
     Route::post('surat/pindah/{id}', [SuratPindahController::class, 'update'])->name('surat.pindah.update');
     Route::delete('surat/pindah/{id}', [SuratPindahController::class, 'destroy'])->name('surat.pindah.destroy');
     Route::get('surat/pindah/{id}/print', [SuratPindahController::class, 'print'])->name('surat.pindah.print')->middleware('verify.surat.status');
+
+    Route::get('surat/penghasilan', [SuratPenghasilanOrtuController::class, 'index'])->name('surat.penghasilan.index');
+    Route::get('surat/penghasilan/create', [SuratPenghasilanOrtuController::class, 'create'])->name('surat.penghasilan.create');
+    Route::post('surat/penghasilan', [SuratPenghasilanOrtuController::class, 'store'])->name('surat.penghasilan.store');
+    Route::get('surat/penghasilan/{id}/edit', [SuratPenghasilanOrtuController::class, 'edit'])->name('surat.penghasilan.edit');
+    Route::post('surat/penghasilan/{id}', [SuratPenghasilanOrtuController::class, 'update'])->name('surat.penghasilan.update');
+    Route::delete('surat/penghasilan/{id}', [SuratPenghasilanOrtuController::class, 'destroy'])->name('surat.penghasilan.destroy');
+    Route::get('surat/penghasilan/{id}/print', [SuratPenghasilanOrtuController::class, 'print'])->name('surat.penghasilan.print')->middleware('verify.surat.status');
 });
 
 // Logout

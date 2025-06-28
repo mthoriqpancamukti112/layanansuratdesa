@@ -36,7 +36,7 @@ class SuratPenduduk extends Model
 
     public function anggotaAhliwaris()
     {
-        return $this->hasMany(AnggotaAhliwaris::class);
+        return $this->hasMany(AnggotaAhliWaris::class);
     }
 
     public function anggotaKeluargaPindahs()

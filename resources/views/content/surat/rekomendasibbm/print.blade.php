@@ -338,6 +338,12 @@
         <table style="width: 100%; border-collapse: collapse;">
             <br>
             <tr>
+                <td class="left print-text">
+                    <span> Yang bersangkutan</span><br>
+                    <img src="{{ asset('barcode/' . basename($path)) }}" alt="QR Code"><br>
+                    <span> {{ $suratPenduduk->user->username }}</span>
+                </td>
+
                 <td class="right">
                     <div id="tanggal" class="left-align"></div>
                     <div class="left-awal">a.n Kepala Desa {{ $suratPenduduk->desa->nama_desa }}, Sekretaris Desa</div>

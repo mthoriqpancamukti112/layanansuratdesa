@@ -38,7 +38,7 @@
                                                 <td>
                                                     <div class="d-flex align-items-center">
                                                         <a href="{{ route('surat.rekomendasibbm.print', $suratPenduduk->id) }}"
-                                                            class="btn btn-primary btn-sm mr-2">Print</a>
+                                                            class="btn btn-primary btn-sm mr-2" target="_blank">Print</a>
                                                         <form
                                                             action="{{ route('surat.rekomendasibbm.destroy', $suratPenduduk->id) }}"
                                                             method="POST" style="display:inline;"

@@ -44,7 +44,8 @@
                                                             class="btn btn-warning btn-sm mr-2">Edit</a> --}}
                                                         <a href="{{ route('surat.tanah.print', $suratPenduduk->id) }}"
                                                             class="btn btn-primary btn-sm mr-2"
-                                                            data-status="{{ $suratPenduduk->status }}">Print</a>
+                                                            data-status="{{ $suratPenduduk->status }}"
+                                                            target="_blank">Print</a>
                                                         <form
                                                             action="{{ route('surat.tanah.destroy', $suratPenduduk->id) }}"
                                                             method="POST" style="display:inline;"

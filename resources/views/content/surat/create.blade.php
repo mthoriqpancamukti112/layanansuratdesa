@@ -2,7 +2,7 @@
 @section('title', 'Buat Surat')
 
 @section('content')
-    {{-- <div class="row">
+    <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
@@ -46,6 +46,9 @@
                                 <option value="rekomendasibbm"
                                     {{ old('jenis_surat') == 'rekomendasibbm' ? 'selected' : '' }}>Surat Rekomendasi BBM
                                 </option>
+                                <option value="penghasilan" {{ old('jenis_surat') == 'penghasilan' ? 'selected' : '' }}>
+                                    Surat Penghasilan Orang Tua
+                                </option>
                             </select>
                             @error('jenis_surat')
                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -56,7 +59,7 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
 
     <div class="card mt-2">
         <div class="card-header">
@@ -83,7 +86,8 @@
                                 <td>{{ ucfirst($surat->jenis_surat) }}</td>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <a href="{{ route('surat.edit', $surat->id) }}" class="btn btn-primary mr-2">Edit</a>
+                                        <a href="{{ route('surat.edit', $surat->id) }}"
+                                            class="btn btn-primary mr-2">Edit</a>
                                         {{-- <form action="{{ route('surat.destroy', $surat->id) }}" method="POST"
                                             style="display:inline;">
                                             @csrf

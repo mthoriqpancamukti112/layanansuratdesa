@@ -74,6 +74,10 @@ return new class extends Migration
             $table->string('batas_barat', 255)->nullable();
             $table->text('keperluan_sktanah')->nullable();
 
+            // Detail untuk surat penghasilan
+            $table->string('jumlah_penghasilan', 255)->nullable();
+            $table->string('keperluan', 255)->nullable();
+
             $table->timestamps();
         });
     }

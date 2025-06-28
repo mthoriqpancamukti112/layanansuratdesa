@@ -32,7 +32,6 @@ return new class extends Migration
             $table->string('no_hp', 20);
             $table->string('desa', 255);
             $table->date('tgl_buat');
-            $table->date('last_login');
             $table->timestamps();
         });
     }

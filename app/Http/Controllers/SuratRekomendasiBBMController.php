@@ -9,6 +9,8 @@ use App\Models\DetailSurat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use BaconQrCode\Renderer\GDLibRenderer;
+use BaconQrCode\Writer;
 
 class SuratRekomendasiBBMController extends Controller
 {
@@ -185,6 +187,30 @@ class SuratRekomendasiBBMController extends Controller
     public function print($id)
     {
         $suratPenduduk = SuratPenduduk::with(['surat', 'detailSurats', 'user.penduduk', 'desa'])->findOrFail($id);
-        return view('content.surat.rekomendasibbm.print', compact('suratPenduduk'));
+
+        // Data yang akan dimasukkan ke dalam kode QR
+        $qrData = $suratPenduduk->user->nik . ' - ' . $suratPenduduk->user->username;
+
+        // Mengatur ukuran kode QR
+        $size = 100; // Ubah ukuran sesuai kebutuhan
+
+        // Membuat renderer dan writer untuk kode QR
+        $renderer = new GDLibRenderer($size);
+        $writer = new Writer($renderer);
+
+        // Membuat folder 'public/barcode' jika belum ada
+        $barcodePath = public_path('barcode');
+        if (!file_exists($barcodePath)) {
+            mkdir($barcodePath, 0777, true);
+        }
+
+        // Menghasilkan nama file dengan username
+        $filename = 'qrcode_' . $suratPenduduk->user->username . '_' . $suratPenduduk->surat->jenis_surat . '.png';
+        $path = $barcodePath . '/' . $filename;
+
+        // Menulis kode QR ke file
+        $writer->writeFile($qrData, $path);
+
+        return view('content.surat.rekomendasibbm.print', compact('suratPenduduk', 'path'));
     }
 }

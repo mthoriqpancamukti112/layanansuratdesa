@@ -58,7 +58,8 @@
                                                     <div class="d-flex align-items-center">
                                                         <a href="{{ route('surat.tidakmampu.print', $suratPenduduk->id) }}"
                                                             class="btn btn-primary btn-sm mr-2"
-                                                            data-status="{{ $suratPenduduk->status }}">Print</a>
+                                                            data-status="{{ $suratPenduduk->status }}"
+                                                            target="_blank">Print</a>
                                                         <form
                                                             action="{{ route('surat.tidakmampu.destroy', $suratPenduduk->id) }}"
                                                             method="POST" style="display:inline;"

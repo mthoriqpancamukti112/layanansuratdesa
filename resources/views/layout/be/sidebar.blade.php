@@ -29,11 +29,18 @@
                     <li><a class="nav-link" href="{{ route('surat.tidakmampu.index') }}">Suket Tidak Mampu</a></li>
                     <li><a class="nav-link" href="{{ route('surat.pindah.index') }}">Suket Pindah</a></li>
                     <li><a class="nav-link" href="{{ route('surat.ahliwaris.index') }}">Suket Ahli Waris</a> </li>
-                    <li><a class="nav-link" href="{{ route('surat.tanah.index') }}">Suket Tanah</a></li>
+                    <li><a class="nav-link" href="{{ route('surat.tanah.index') }}">Suket Kepemilikan Tanah</a></li>
+                    <li><a class="nav-link" href="{{ route('surat.penghasilan.index') }}">Suket Penghasilan Ortu</a>
+                    </li>
                     <li><a class="nav-link" href="{{ route('surat.rekomendasibbm.index') }}">Surat Rekomendasi BBM</a>
                     </li>
                 </ul>
             </li>
+
+            @if (auth()->check() && auth()->user()->role == 'admin')
+                <li><a class="nav-link" href="{{ route('user.index') }}"><i class="fas fa-user"></i>
+                        <span>User</span></a></li>
+            @endif
         </ul>
     </aside>
 </div>

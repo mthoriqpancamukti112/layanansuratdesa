@@ -50,4 +50,14 @@ class LoginController extends Controller
 
         return redirect()->route('home.index')->with('success', 'Berhasil logout');
     }
+
+    public function logoutCustomer(Request $request)
+    {
+        if (Auth::check()) {
+            Auth::logout();
+        }
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
+    }
 }

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('no_surat');
             $table->string('nama_surat');
-            $table->enum('jenis_surat', ['usaha', 'tidak_mampu', 'pindah', 'ahliwaris', 'tanah', 'rekomendasibbm']);
+            $table->enum('jenis_surat', ['usaha', 'tidak_mampu', 'pindah', 'ahliwaris', 'tanah', 'rekomendasibbm', 'penghasilan']);
             $table->timestamps();
         });
     }

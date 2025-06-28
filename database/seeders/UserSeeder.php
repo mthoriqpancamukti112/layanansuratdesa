@@ -34,7 +34,7 @@ class UserSeeder extends Seeder
             'username' => 'admin',
             'jk' => 'Laki-laki',
             'tempat_lahir' => 'Mataram',
-            'tgl_lahir' => '2000-10-01',
+            'tgl_lahir' => '2000-09-05',
             'kewarganegaraan' => 'Indonesia',
             'agama' => 'Islam',
             'status' => 'Menikah',

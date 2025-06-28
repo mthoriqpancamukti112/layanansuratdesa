@@ -58,7 +58,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="upload_kk">Upload KK:</label>
+                                    <label for="upload_kk">Upload KK (img):</label>
                                     <input type="file" id="upload_kk" name="upload_kk"
                                         class="form-control-file @error('upload_kk') is-invalid @enderror">
                                     @error('upload_kk')
@@ -66,7 +66,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <label for="upload_ktp">Upload KTP:</label>
+                                    <label for="upload_ktp">Upload KTP (img):</label>
                                     <input type="file" id="upload_ktp" name="upload_ktp"
                                         class="form-control-file @error('upload_ktp') is-invalid @enderror">
                                     @error('upload_ktp')

@@ -20,7 +20,7 @@ class DetailSurat extends Model
         'konsumsi', 'alat_pembelian_digunakan', 'dusun', 'nama_desa_sktanah',
         'kecamatan_sktanah', 'kabupaten_sktanah', 'luas_tanah', 'status_tanah',
         'digunakan_untuk', 'cara_memperoleh', 'batas_utara', 'batas_timur',
-        'batas_selatan', 'batas_barat', 'keperluan_sktanah',
+        'batas_selatan', 'batas_barat', 'keperluan_sktanah', 'jumlah_penghasilan', 'keperluan',
     ];
 
     // Relasi
